@@ -1,9 +1,20 @@
+import { NavLink } from "react-router-dom";
+
+const navLinkStyles = ({ isActive }) => ({
+  color: isActive ? '#007bff' : '#e2dbdb',
+  textDecoration: 'none',
+  fontWeight: isActive ? 'bold' : 'normal',
+  padding: '5px 10px'
+});
+
 function Navbar() {
     return (
-        <nav>
-            <h1>Skate shop</h1>
-
-            <a href="/cart">Cart</a>
+        <nav className="bg-gray-800 p-4 flex justify-between">
+            <NavLink to="/" style={navLinkStyles}>Home</NavLink>
+            <div className="flex gap-4">
+                <NavLink to="/shop" style={navLinkStyles}>Shop</NavLink>
+                <NavLink to="/cart" style={navLinkStyles}>Cart</NavLink>
+            </div>
         </nav>
     );
 }
