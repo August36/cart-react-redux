@@ -16,6 +16,7 @@ function Cart() {
                     <article key={item.id} className="border border-gray-300 rounded-lg p-4 mb-4">
                         <h3 className="text-xl font-bold">{item.title}</h3>
                         <p className="text-lg">${item.price.toFixed(2)} kr.</p>
+                        <p className="text-md">Quantity: {item.quantity}</p>
                         <img src={item.thumbnail} alt={item.title} className="w-xs h-auto mb-4" />
     
                         <button onClick={() => dispatch(removeFromCart(item.id))} className="bg-gray-500 text-white py-1 px-2 mt-2 rounded hover:bg-red-600">
