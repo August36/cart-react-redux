@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { removeFromCart, clearCart } from "../store/cartSlice";
 
 function Cart() {
@@ -28,6 +29,7 @@ function Cart() {
                     <button onClick={() => dispatch(clearCart())} className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-red-600">
                         Clear cart
                     </button>
+                    <Link to="/checkout" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ml-4">Checkout</Link>
         </section>
     );
 }
