@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
 import Cart from "./views/Cart";
 import Shop from "./views/Shop";
@@ -8,6 +9,8 @@ import PhoneInfo from "./components/PhoneInfo";
 import "./App.css";
 
 function App() {
+    const cart = useSelector(state => state.cart.items);
+
     return (
         <BrowserRouter>
             <Navbar />
@@ -21,7 +24,7 @@ function App() {
                     <Route path=":id" element={<PhoneInfo />} />
                 </Route>
 
-                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/checkout" element={cart.length > 0 ? <Checkout /> : <Shop />} />
             </Routes>
         </BrowserRouter>
     );
